@@ -14,16 +14,16 @@ type rule struct {
 }
 
 func Convert(number int) string {
-	rule3 := rule{divisor: THREE, sound: "Pling"}
-	rule5 := rule{divisor: FIVE, sound: "Plang"}
-	rule7 := rule{divisor: SEVEN, sound: "Plong"}
-
-	rules := []rule{rule3, rule5, rule7}
+	rules := []rule{
+		{THREE, "Pling"},
+		{FIVE, "Plang"},
+		{SEVEN, "Plong"},
+	}
 
 	word := ""
-	for r := range rules {
-		if number%rules[r].divisor == 0 {
-			word += rules[r].sound
+	for _, r := range rules {
+		if number%r.divisor == 0 {
+			word += r.sound
 		}
 	}
 
