@@ -4,9 +4,27 @@ import (
 	"errors"
 )
 
+type ArabicToNumerals struct {
+	arabic   int
+	numerals string
+}
+
 func ToRomanNumeral(number int) (string, error) {
-	arabic := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
-	numerals := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+	arabicToNumerals := []ArabicToNumerals{
+		{1000, "M"},
+		{900, "CM"},
+		{500, "D"},
+		{400, "CD"},
+		{100, "C"},
+		{90, "XC"},
+		{50, "L"},
+		{40, "XL"},
+		{10, "X"},
+		{9, "IX"},
+		{5, "V"},
+		{4, "IV"},
+		{1, "I"},
+	}
 
 	var result string
 
@@ -14,10 +32,10 @@ func ToRomanNumeral(number int) (string, error) {
 		return result, errors.New("invalid number")
 	}
 
-	for i, v := range arabic {
-		for number >= v {
-			result += numerals[i]
-			number -= v
+	for _, v := range arabicToNumerals {
+		for number >= v.arabic {
+			result += v.numerals
+			number -= v.arabic
 		}
 	}
 
