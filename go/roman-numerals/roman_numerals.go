@@ -4,13 +4,13 @@ import (
 	"errors"
 )
 
-type ArabicToNumerals struct {
-	arabic   int
-	numerals string
+type ArabicToNumeral struct {
+	arabic  int
+	numeral string
 }
 
 func ToRomanNumeral(number int) (string, error) {
-	arabicToNumerals := []ArabicToNumerals{
+	arabicToNumerals := []ArabicToNumeral{
 		{1000, "M"},
 		{900, "CM"},
 		{500, "D"},
@@ -34,7 +34,7 @@ func ToRomanNumeral(number int) (string, error) {
 
 	for _, v := range arabicToNumerals {
 		for number >= v.arabic {
-			result += v.numerals
+			result += v.numeral
 			number -= v.arabic
 		}
 	}
