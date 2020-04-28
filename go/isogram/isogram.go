@@ -7,7 +7,7 @@ import (
 func IsIsogram(word string) bool {
 	tracker := map[rune]int{}
 
-	FormattedWord := strings.NewReplacer((strings.ToLower(word), "-", "")
+	FormattedWord := strings.ReplaceAll(strings.ToLower(word), "-", "")
 	FormattedWord = strings.ReplaceAll(FormattedWord, " ", "")
 
 	for _, v := range FormattedWord {
