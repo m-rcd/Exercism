@@ -4,13 +4,11 @@ package diffsquares
 
 func SquareOfSum(n int) int {
 	result := n * (n + 1) / 2
-
 	return result * result
 }
 
 func SumOfSquares(n int) int {
-	result := n * (n + 1) * (2*n + 1) / 6
-	return result
+	return n * (n + 1) * (2*n + 1) / 6
 }
 
 func Difference(n int) int {
