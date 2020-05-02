@@ -1,19 +1,15 @@
 package diffsquares
 
+// https://brilliant.org/wiki/sum-of-n-n2-or-n3/
+
 func SquareOfSum(n int) int {
-	result := 0
-	for i := 1; i <= n; i++ {
-		result += i
-	}
+	result := n * (n + 1) / 2
 
 	return result * result
 }
 
 func SumOfSquares(n int) int {
-	result := 0
-	for i := 1; i <= n; i++ {
-		result += i * i
-	}
+	result := n * (n + 1) * (2*n + 1) / 6
 	return result
 }
 
