@@ -17,6 +17,7 @@ func HasLetter(word string) bool {
 	return false
 }
 
+// Checks whether a number is valid or not based on luhn algorithm
 func Valid(number string) bool {
   formattedNumber := strings.ReplaceAll(number, " ", "")
 	if len(formattedNumber) <= 1  || HasLetter(formattedNumber) { 
