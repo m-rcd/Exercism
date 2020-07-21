@@ -19,12 +19,8 @@ func HasLetter(word string) bool {
 
 func Valid(number string) bool {
   formattedNumber := strings.ReplaceAll(number, " ", "")
-	if len(formattedNumber) <= 1 { 
+	if len(formattedNumber) <= 1  || HasLetter(formattedNumber) { 
 		return false 
-	}
-	
-	if HasLetter(formattedNumber) {
-		return false
 	}
 
 	var digits Ints
@@ -32,17 +28,17 @@ func Valid(number string) bool {
 
 	for i := len(formattedNumber) - 1;i >= 0; i-- {
 		count += 1 
-		integ,_ := strconv.Atoi(string(formattedNumber[i]))
+		digit,_ := strconv.Atoi(string(formattedNumber[i]))
 
 		if count%2 == 0 {
-		 sum := integ * 2 
-		 if sum >= 9 {
-			digits = append(digits, sum - 9)
+		 double := digit * 2 
+		 if double >= 9 {
+			digits = append(digits, double - 9)
      } else {
-			digits = append(digits, sum)
+			digits = append(digits, double)
 		 }
 		} else {
-			digits = append(digits, integ)
+			digits = append(digits, digit)
 	  }
 	}
 
