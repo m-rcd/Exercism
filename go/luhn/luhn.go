@@ -13,15 +13,14 @@ func Valid(number string) bool {
 		return false 
 	}
 
-	for _, r := range formattedNumber {
-		if unicode.IsLetter(r) {
-			return false
-	  }	
-	}
 	var count int
 	double := len(formattedNumber)%2 == 0 
 	
 	for _, r := range formattedNumber {
+		if unicode.IsLetter(r) {
+			return false
+		}	
+		
 		digit,_ := strconv.Atoi(string(r))
 
 		if double && digit * 2  >= 9 {
